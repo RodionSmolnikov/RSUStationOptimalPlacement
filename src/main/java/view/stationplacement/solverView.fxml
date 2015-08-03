@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1050.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="view.stationplacement.SolverViewController">
+  <children>
+    <GridPane layoutX="0.0" layoutY="2.0" prefHeight="600.0" prefWidth="1050.0">
+      <children>
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <children>
+            <MenuBar prefHeight="28.0" prefWidth="180.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Solve">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Brute Force (2)" fx:id="bruteForceStart2" />
+                    <MenuItem mnemonicParsing="false" text="Brute Force (4)" fx:id="bruteForceStart4" />
+                    <MenuItem mnemonicParsing="false" text="Heurisic algorithm" fx:id="heuristicStart" />
+                    <MenuItem mnemonicParsing="false" text="make Data for GLPK" fx:id="makeGLPKData" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TextArea fx:id="console" prefWidth="200.0" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+              <children>
+                <TextField fx:id="loadFileName" prefHeight="33.999900000002526" prefWidth="122.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="saveFileName" editable="false" prefHeight="34.0" prefWidth="122.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Button fx:id="loadButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="186.0" text="Load" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="186.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Button fx:id="loadChooseButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" text="..." GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Label text="To file..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+                <Button fx:id="generateFileNameButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="51.0" text="Gen" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="5.0" prefWidth="5.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.0" minWidth="4.0" prefWidth="5.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="67.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="3.0" prefWidth="22.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="78.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="127.0" minHeight="1.0" prefHeight="7.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.0" minHeight="8.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.0" minHeight="7.0" prefHeight="71.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.0" minHeight="4.0" prefHeight="7.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="156.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="189.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="255.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="490.0" minHeight="10.0" prefHeight="296.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <GridPane prefHeight="581.0000999999975" prefWidth="360.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+          <children>
+            <TableView id="placementTable" fx:id="placementsTable" prefHeight="282.0" prefWidth="381.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="382.0" text="Placement" fx:id="placements" />
+              </columns>
+            </TableView>
+            <TableView fx:id="typesTable" prefHeight="265.0" prefWidth="381.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Cost" fx:id="cost" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" text="Coverage Radius" fx:id="coverageRadius" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="179.0" text="Connection Radius" fx:id="connectionRadius" />
+              </columns>
+            </TableView>
+            <TextField id="budget" fx:id="budgetField" prefHeight="34.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="362.0" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="383.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="226.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="282.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="268.0" minHeight="10.0" prefHeight="265.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <TextArea fx:id="GLPKdata" prefHeight="581.0" prefWidth="375.0" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="6.0" prefWidth="9.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="303.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="0.0" prefWidth="6.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="369.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="363.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="581.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="200.0" minHeight="9.0" prefHeight="9.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

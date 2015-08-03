@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="view.stationplacement.InsertParamsCoverageModelController">
+  <children>
+    <GridPane id="console" prefHeight="418.0" prefWidth="664.0" style="border-bottom: 2px solid black;&#10;&#10;&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <TableView fx:id="placementsTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="0.0" prefWidth="325.0" text="       coordinate" fx:id="coordinateColumn" />
+          </columns>
+        </TableView>
+        <TableView fx:id="typesTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="71.0" text="cost" fx:id="costColumn" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="105.0" text="coverage radius" fx:id="coverageRadiusColumn" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="149.0" text="connection radius" fx:id="connectionRadiusColumn" />
+          </columns>
+        </TableView>
+        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <children>
+            <Label layoutX="0.0" layoutY="0.0" prefHeight="36.0" prefWidth="331.0" text="                                       Station types" textAlignment="CENTER" />
+          </children>
+        </Pane>
+        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+          <children>
+            <Label layoutX="0.0" layoutY="0.0" prefHeight="36.0" prefWidth="331.0" text="                                  Posible placement" textAlignment="CENTER" wrapText="true" />
+          </children>
+        </Pane>
+        <Pane id="budget" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+          <children>
+            <TextField fx:id="money" disable="true" editable="false" layoutX="0.0" layoutY="0.0" prefHeight="36.0" prefWidth="331.0" promptText="set budget" />
+          </children>
+        </Pane>
+        <Label prefHeight="36.0" prefWidth="331.0" text="                             Station placement. Add pacement" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <GridPane prefHeight="82.0" prefWidth="332.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+          <children>
+            <Label prefHeight="24.0" prefWidth="100.0" text="    cost" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label prefHeight="24.0" prefWidth="100.0" text="  coverage rad" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Label prefHeight="24.000099999997474" prefWidth="100.0" text="  connection rad" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+            <TextField fx:id="inputTypeCost" minWidth="-1.0" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <TextField fx:id="inputTypeCoverageRadius" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <TextField fx:id="inputTypeConnectionRadius" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="validateAllButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="96.0" text="Validate" textFill="#0c9900" GridPane.columnIndex="5" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+              <font>
+                <Font name="System Bold" size="14.0" />
+              </font>
+            </Button>
+            <Button fx:id="addTypeButton" mnemonicParsing="false" prefWidth="95.0" text="Add type" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Button>
+            <Button fx:id="addBudgetButton" mnemonicParsing="false" prefWidth="96.0" text="Add budget" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <TextField fx:id="inputBudget" alignment="TOP_LEFT" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="submitButton" defaultButton="false" minHeight="25.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="96.0" text="Submit" textFill="#0002cc" GridPane.columnIndex="7" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+              <font>
+                <Font name="System Bold" size="15.0" />
+              </font>
+            </Button>
+            <Button fx:id="deleteTypeButton" mnemonicParsing="false" prefWidth="95.0" text="Delete type" GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="11.0" prefWidth="22.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="74.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="64.0" minWidth="11.0" prefWidth="22.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="84.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="67.0" minWidth="5.0" prefWidth="18.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="95.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="5.0" prefWidth="5.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="11.0" prefWidth="95.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <TextArea fx:id="console" disable="false" editable="false" prefWidth="200.0" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <GridPane prefHeight="94.0" prefWidth="327.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+          <children>
+            <Button fx:id="validatePlacementsButton" mnemonicParsing="false" prefWidth="96.0" text="Validate" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <TextField fx:id="inputCoordinate" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button fx:id="addCoordinateButton" alignment="CENTER" contentDisplay="LEFT" mnemonicParsing="false" prefWidth="55.0" text="Add" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <Button fx:id="deleteCoordinateButton" mnemonicParsing="false" text="Delete" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <Button fx:id="sortPlacementsButton" mnemonicParsing="false" prefWidth="96.0" text="Sort" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label prefHeight="51.0" prefWidth="96.0" text="Validate it after addition!!!" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="11.0" minWidth="11.0" prefWidth="11.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="96.0" prefWidth="96.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="11.0" minWidth="11.0" prefWidth="11.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="96.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="67.0" minWidth="11.0" prefWidth="11.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="96.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="11.0" prefWidth="11.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="39.0" minHeight="11.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <Label prefHeight="36.0" prefWidth="331.0" style="&#10;" text="                                       Add types" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="415.0" minWidth="10.0" prefWidth="415.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="327.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="7.0" prefWidth="8.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="257.0" minHeight="10.0" prefHeight="212.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="145.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="189.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="117.0" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>
